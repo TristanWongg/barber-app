@@ -1,10 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const BookingsModel = require('./models/Bookings');
-require('dotenv').config();
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -68,3 +68,5 @@ app.delete('/deleteBooking/:id', async (req, res) => {
 app.listen(PORT, () => {
     console.log('Running server on port 3001');
 })
+
+//    "start": "nodemon server.js"
