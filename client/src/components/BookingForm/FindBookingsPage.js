@@ -9,7 +9,7 @@ function FindBookingsPage({ page, setPage, updateHelper, setUpdateHelper, appoin
     
     const findBookings = (e) => {
         e.preventDefault();
-        axios.get(`http://localhost:3001/findBookings/${updateHelper.email}&${updateHelper.phone}`)
+        axios.get(`http://localhost:3001/findBookings/${updateHelper.email}&${updateHelper.phone}` || `https://barber-app-backend.onrender.com/findBookings/${updateHelper.email}&${updateHelper.phone}`)
         .then((response) => {
             if(response.data.length !== 0) {
                 setAppointments(response.data);
@@ -22,7 +22,7 @@ function FindBookingsPage({ page, setPage, updateHelper, setUpdateHelper, appoin
 
     const handleDelete = (e, id) => {
         e.stopPropagation();
-        axios.delete(`http://localhost:3001/deleteBooking/${id}`);
+        axios.delete(`http://localhost:3001/deleteBooking/${id}` || `https://barber-app-backend.onrender.com/deleteBooking/${id}`);
         setAppointments(appointments.filter((appt) => appt._id !== id));
     }
 

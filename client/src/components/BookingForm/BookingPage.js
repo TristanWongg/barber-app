@@ -17,7 +17,7 @@ function BookingDetails({ page, setPage}) {
 
     const createBooking = async (e) => {
         e.preventDefault();
-        await axios.post('http://localhost:3001/createBooking', {
+        await axios.post('http://localhost:3001/createBooking' || 'https://barber-app-backend.onrender.com/createBooking', {
             name,
             email,
             phone,

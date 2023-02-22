@@ -2,12 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const BookingsModel = require('./models/Bookings');
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb+srv://Twizzle:mUGJDIwGGjDK7Aym@cluster0.mpmfuhq.mongodb.net/BarberAppDB?retryWrites=true&w=majority');
+mongoose.connect(process.env.MONGO_URL)
 
 app.get('/getConfirmedBooking', (req, res) => {
     BookingsModel.findOne().sort({_id:-1}).exec((err, result) => {
