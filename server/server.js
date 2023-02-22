@@ -66,5 +66,5 @@ app.delete('/deleteBooking/:id', async (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log('Running server on port 3001');
+    console.log(`Server is running on port ${PORT}`);
 })
