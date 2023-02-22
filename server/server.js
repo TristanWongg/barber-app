@@ -4,11 +4,12 @@ const cors = require('cors');
 const BookingsModel = require('./models/Bookings');
 require('dotenv').config();
 
+const PORT = process.env.PORT || 3001
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URL);
 
 app.get('/getConfirmedBooking', (req, res) => {
     BookingsModel.findOne().sort({_id:-1}).exec((err, result) => {
@@ -64,6 +65,6 @@ app.delete('/deleteBooking/:id', async (req, res) => {
     res.send('deleted')
 })
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
     console.log('Running server on port 3001');
 })
