@@ -9,7 +9,7 @@ function ConfirmedPage() {
     const [appointment, setAppointment] = useState({});
 
     useEffect(() => {
-        axios.get('http://localhost:3001/getConfirmedBooking').then((response) => {
+        axios.get('http://localhost:3001/getConfirmedBooking' || 'https://barber-app-zcr1.onrender.com/getConfirmedBooking').then((response) => {
             setAppointment(response.data);
         });
     },[]);
@@ -17,6 +17,7 @@ function ConfirmedPage() {
     return (  
             <div className={ConfirmedPageCSS.container}>
                 <Confetti 
+                    gravity={0.2}
                     height={window.innerHeight - 100}
                     numberOfPieces={2500}
                     recycle={false}
