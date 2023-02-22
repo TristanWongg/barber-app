@@ -6,12 +6,14 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 mongoose.set('strictQuery', true);
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(process.env.MONGO_URL);
+const MONGO_URI = process.env.MONGO_URI
+mongoose.connect(MONGO_URI);
 
 app.get('/getConfirmedBooking', (req, res) => {
     res.setHeader('Access-Control-Allow-Credentials', 'true');
