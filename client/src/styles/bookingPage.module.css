@@ -1,0 +1,68 @@
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bookingForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 85%;
+    width: 90%;
+}
+
+.customerContainer,
+.appointmentContainer {
+    font-size: medium;
+    display: flex;
+    flex-direction: column;
+    gap: .75em;
+}
+
+.customerContainer > input,
+.appointmentContainer > select,
+.date {
+    height: 2.5em;
+    font-size: medium;
+    padding-left: .5em;
+    background-color: transparent;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+}
+
+.date {
+    width: 100%;
+}
+
+.submitBtn {
+    background-color: transparent;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    width: fit-content;
+    align-self: center;
+    padding: .5em;
+    font-size: large;
+    font-family: Raleway-medium;
+    box-shadow: 1px 1px 1px black;
+}
+
+.submitBtn:hover {
+    cursor: pointer;
+    background-color: black;
+    color: whitesmoke;
+    transition: background-color .2s linear;
+}
+
+.updateBtn {
+    background-color: transparent;
+    border: none;
+    margin-top: 3em;
+}
+
+.updateBtn:hover {
+    cursor: pointer;
+    text-decoration: 1px underline black;
+}

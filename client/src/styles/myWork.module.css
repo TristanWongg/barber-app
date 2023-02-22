@@ -1,0 +1,25 @@
+.background{
+  height: calc(100vh - 10vh);
+  display: flex;
+  align-items: center;
+}
+
+.title {
+ margin-left: 1.5vw;
+ margin-right: 1.5vw;
+}
+
+.title > h1 {
+  font-family: Raleway-medium;
+}
+
+.swiper {
+  height: 90%;
+  width: 88%;
+}
+
+.swiperSlide img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

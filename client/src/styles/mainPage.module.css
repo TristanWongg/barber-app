@@ -1,0 +1,38 @@
+.background{
+  --main-bg-image: url('../assets/images/guus-baggermans-cg599DTeS8w-unsplash.jpg');
+  --main-bg-image-opacity: .8;
+
+  position: relative;
+  height: calc(100vh - 10vh);
+  isolation: isolate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.background::before{
+  content: '';
+  background-image: var(--main-bg-image);
+  opacity: var(--main-bg-image-opacity);
+  background-size: 100vw 100vh;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.btn{
+  margin-top: 13em;
+  border: 2px solid whitesmoke;
+  background-color: transparent;
+  color: whitesmoke;
+  padding: 20px 35px;
+  font-family: Raleway-medium;
+  font-size: 1.4em;
+}
+
+.btn:hover{
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: black;
+  transition: background-color .2s linear;
+}

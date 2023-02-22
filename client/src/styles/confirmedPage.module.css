@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+}
+
+.detailsContainer {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.detailsContainer > div > p {
+    padding: .2em 0em;
+    text-align: end;
+    font-family: Raleway-medium;
+}
+
+.container > h3:first-of-type {
+    padding-bottom: 2.5em;
+}
+
+.container > h3:last-of-type {
+    padding-top: 2.5em;
+}
+
+.container > h4:first-of-type {
+    font-family: Raleway-medium;
+}

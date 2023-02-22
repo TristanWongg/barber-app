@@ -1,0 +1,60 @@
+.bookingForm {
+    position: absolute;
+    z-index: 2;
+    right:1.5em;
+    height: 85vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--main-bg-colour);
+    border: 5px double black;
+    border-radius: 25px;
+    box-shadow: 2px 2px 5px black;
+    margin-top: 1em;
+    padding: 1.5em;
+}
+
+.header {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    gap: .25em;
+}
+
+.prevIcon {
+    grid-column: 1 / 2;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header > h3 {
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: center;
+    font-family: Raleway-medium;
+    font-size: 1.3em;
+}
+
+.closeBtn {
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.closeBtn,
+.prevIcon {
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    align-items: center;
+}
+
+.closeBtn:hover,
+.prevIcon:hover {
+    cursor: pointer;
+    font-size: 1.05em;
+}
+
+.body {
+    height: 90%;
+}

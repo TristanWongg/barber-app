@@ -1,0 +1,59 @@
+.background {
+    display: flex;
+    height: calc(100vh - 10vh);
+    background-color: var(--main-bg-colour);
+    display: flex;
+    align-items: center;
+}
+
+.bgImage{
+    --services-bg-image: url('../assets/images/chris-knight-vI3m5UnZ0aQ-unsplash.jpg');
+    --services-bg-image-opacity: .8;
+
+    height: 90%;
+    width: 100%;
+    position: relative;
+    isolation: isolate;
+  }
+    
+  .bgImage::before{
+    content: '';
+    background-image: var(--services-bg-image);
+    opacity: var(--services-bg-image-opacity);
+    background-size: 100vw 100vh;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    object-fit: cover;
+    width: 98%;
+  }
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+}
+
+.title > h1 {
+    font-family: Raleway-medium;
+}
+
+.servicesContainer {
+    height: 100%;
+    width: 98%;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.servicesContainer ul {
+    list-style: none;
+    color: whitesmoke;
+}
+
+.servicesContainer ul li {
+    margin: 1em;
+    font-size: 2em;
+    font-family: Raleway-light;
+}

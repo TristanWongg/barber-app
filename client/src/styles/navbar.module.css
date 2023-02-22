@@ -1,0 +1,76 @@
+.navbar {
+    height: 10vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: sticky;
+    isolation: isolate;
+}
+
+.leftNavbar,
+.rightNavbar,
+.middleNavbar {
+    display: flex;
+    align-items: center;
+}
+
+.leftNavbar {
+    justify-content: flex-start;
+    padding-left: 3em;
+    gap: 2em;
+}
+
+.middleNavbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.middleNavbar h1 {
+    font-family: Raleway-Medium;
+    font-size: 2.5em;
+    opacity: .8;
+}
+
+.middleNavbar > a {
+    display: flex;
+}
+
+.middleNavbar > a > :nth-child(2) {
+    -webkit-text-fill-color: #fafafa;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: .2px;
+}
+
+.rightNavbar {
+    justify-content: flex-end;
+    padding-right: 3em;
+    gap: 2em;
+}
+
+.aLink {
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+}
+
+.instagramIcon {
+    color: black;
+    font-size: 1.5em;
+}
+
+.btn {
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: whitesmoke;
+    padding: 1em 1.8em;
+    font-size: 15px;
+}
+
+.aLink:hover,
+.instagramIcon:hover,
+.btn:hover {
+    cursor: pointer;
+    opacity: .7;
+}

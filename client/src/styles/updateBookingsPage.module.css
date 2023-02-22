@@ -1,0 +1,52 @@
+.updateForm {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+.updateForm > select,
+.date {
+    width: 100%;
+    height: 2em;
+    font-size: medium;
+    padding-left: .5em;
+    background-color: transparent;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+}
+
+.updateBtn {
+    font-family: Raleway-medium;
+    font-size: large;
+    background-color: transparent;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    width: fit-content;
+    align-self: center;
+    margin-top: 1em;
+    padding: .5em;
+}
+
+.updateBtn:hover {
+    cursor: pointer;
+    background-color: black;
+    color: whitesmoke;
+    transition: background-color .2s linear;
+}
+
+.updateMsgContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detailsContainer {
+    display: flex;
+    gap: 1em;
+}
+
+.labels {
+    text-align: end;
+}
