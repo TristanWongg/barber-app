@@ -1,9 +1,11 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const BookingsModel = require('./models/Bookings');
+const dotenv = require('dotenv');
 
+dotenv.config();
+mongoose.set('strictQuery', true);
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
@@ -12,6 +14,7 @@ app.use(cors());
 mongoose.connect(process.env.MONGO_URL);
 
 app.get('/getConfirmedBooking', (req, res) => {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
     BookingsModel.findOne().sort({_id:-1}).exec((err, result) => {
         if(err){
             res.json(err)
