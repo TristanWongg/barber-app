@@ -2,7 +2,6 @@ import UpdateBookingCSS from '../../styles/updateBookingsPage.module.css'
 import { useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-
 import DatePicker from "react-datepicker";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
@@ -66,7 +65,7 @@ function UpdateBookingsPage({ updateHelper, setUpdateHelper, appointments, setAp
                     <h4>New Appointment Details:</h4>
                     <br />
                     <div className={UpdateBookingCSS.detailsContainer}>
-                        <div className={UpdateBookingCSS.labels}>
+                        <div>
                             <p>Name :</p>
                             <p>Email :</p>
                             <p>Phone :</p>

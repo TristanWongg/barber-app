@@ -47,6 +47,12 @@
     gap: 1em;
 }
 
-.labels {
+.detailsContainer > div > p {
+    padding: .2em 0em;
     text-align: end;
+    font-family: Raleway-medium;
+}
+
+.updateMsgContainer > h4:first-of-type {
+    font-family: Raleway-medium;
 }
