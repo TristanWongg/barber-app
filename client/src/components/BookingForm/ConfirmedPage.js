@@ -9,7 +9,7 @@ function ConfirmedPage() {
     const [appointment, setAppointment] = useState({});
 
     useEffect(() => {
-        axios.get('http://localhost:3001/getConfirmedBooking' || 'https://barber-app-backend.onrender.com/getConfirmedBooking').then((response) => {
+        axios.get('https://barber-app-backend.onrender.com/getConfirmedBooking').then((response) => {
             setAppointment(response.data);
         });
     },[]);
