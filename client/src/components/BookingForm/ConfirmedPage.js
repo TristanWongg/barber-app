@@ -19,7 +19,7 @@ function ConfirmedPage() {
                 <Confetti 
                     gravity={0.2}
                     height={window.innerHeight - 100}
-                    numberOfPieces={1500}
+                    numberOfPieces={2000}
                     recycle={false}
                 />
                 <h3>Your appointment has been confirmed</h3>
