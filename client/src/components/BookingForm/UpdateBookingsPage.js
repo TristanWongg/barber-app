@@ -16,7 +16,7 @@ function UpdateBookingsPage({ updateHelper, setUpdateHelper, appointments, setAp
 
     const updateBooking = (e) => {
         e.preventDefault();
-        axios.put('http://localhost:3001/updateBooking' || 'https://barber-app-backend.onrender.com/updateBooking', { id: updateHelper.id, service, date })
+        axios.put('https://barber-app-backend.onrender.com/updateBooking', { id: updateHelper.id, service, date })
         .then((response) => {
             const data = response.data;
             setAppointments(appointments.map((appt) => {
