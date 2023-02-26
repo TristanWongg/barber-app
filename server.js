@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const BookingsModel = require('./models/Bookings');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 mongoose.set('strictQuery', true);
