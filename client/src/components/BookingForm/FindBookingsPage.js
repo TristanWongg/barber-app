@@ -8,8 +8,7 @@ function FindBookingsPage({ page, setPage, formData, setFormData, appointments, 
     
     const findBookings = (e) => {
         e.preventDefault();
-        // axios.get(`https://barber-app-backend.onrender.com/findBookings/${formData.email}&${formData.phone}`)
-        axios.get(`/findBookings/${formData.email}&${formData.phone}`)
+        axios.get(`https://barber-app-backend.onrender.com/findBookings/${formData.email}&${formData.phone}`)
         .then((response) => {
             if(response.data.length !== 0) {
                 setAppointments(response.data);
@@ -22,8 +21,7 @@ function FindBookingsPage({ page, setPage, formData, setFormData, appointments, 
 
     const handleDelete = (e, id) => {
         e.stopPropagation();
-        // axios.delete(`https://barber-app-backend.onrender.com/deleteBooking/${id}`);
-        axios.delete(`/deleteBooking/${id}`);
+        axios.delete(`https://barber-app-backend.onrender.com/deleteBooking/${id}`);
         setAppointments(appointments.filter((appt) => appt._id !== id));
     }
 

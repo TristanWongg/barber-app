@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const BookingsModel = require('./models/Bookings');
 const dotenv = require('dotenv');
-const path = require('path');
 
 dotenv.config();
 mongoose.set('strictQuery', true);
@@ -13,44 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// const MONGO_URI = process.env.MONGO_URI
-// mongoose.connect(MONGO_URI);
-
-
-const connectDB = async () => {
-    try {
-        const conn = await mongoose.connect(process.env.MONGO_URI);
-        console.log(`MongoDB Connected: ${conn.connection.host}`);
-    } catch (error) {
-        console.log(error);
-        process.exit(1);
-    }
-}
-
-connectDB().then(() => {
-    app.listen(PORT, () => {
-        console.log(`listening on port: ${PORT}`);
-    })
-})
-
-
-app.use(express.static(path.join(__dirname, "./client/build")));
-
-app.get("*", function (_, res) {
-    res.sendFile(
-        path.join(__dirname, "./client/build/index.html"),
-            function (err) {
-                res.status(500).send(err);
-            }
-        );
-});
-
-
-
-
-
-
-
+mongoose.connect(process.env.MONGO_URI);
 
 app.get('/getConfirmedBooking', (req, res) => {
     // res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -107,6 +69,6 @@ app.delete('/deleteBooking/:id', (req, res) => {
     res.send('deleted')
 })
 
-// app.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-// })
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+})

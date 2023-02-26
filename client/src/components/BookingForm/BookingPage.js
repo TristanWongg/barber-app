@@ -17,8 +17,7 @@ function BookingPage({ page, setPage, setFormData }) {
 
     const createBooking = async (e) => {
         e.preventDefault();
-        // await axios.post('https://barber-app-backend.onrender.com/createBooking', {
-        await axios.post('/createBooking', {
+        await axios.post('https://barber-app-backend.onrender.com/createBooking', {
             name,
             email,
             phone,
@@ -26,8 +25,7 @@ function BookingPage({ page, setPage, setFormData }) {
             date
         })
 
-        // await axios.get('https://barber-app-backend.onrender.com/getConfirmedBooking').then((response) => {
-        await axios.get('/getConfirmedBooking').then((response) => {
+        await axios.get('https://barber-app-backend.onrender.com/getConfirmedBooking').then((response) => {
             setFormData({
                 name: response.data.name,
                 email: response.data.email,
