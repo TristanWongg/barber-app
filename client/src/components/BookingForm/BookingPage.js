@@ -7,7 +7,7 @@ import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import "react-datepicker/dist/react-datepicker.css";
 
-function BookingDetails({ page, setPage}) {
+function BookingPage({ page, setPage, setFormData }) {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -24,10 +24,20 @@ function BookingDetails({ page, setPage}) {
             service,
             date
         })
+
+        await axios.get('https://barber-app-backend.onrender.com/getConfirmedBooking').then((response) => {
+            setFormData({
+                name: response.data.name,
+                email: response.data.email,
+                phone: response.data.phone,
+                service: response.data.service,
+                date: response.data.date
+            });
+        });
         setPage(3);
     };
 
-    return (  
+    return (
         <div className={BookingPageCSS.container}>
             <form onSubmit={createBooking} className={BookingPageCSS.bookingForm}>
                 <div className={BookingPageCSS.customerContainer}>
@@ -90,4 +100,4 @@ function BookingDetails({ page, setPage}) {
     );
 }
 
-export default BookingDetails;
+export default BookingPage;

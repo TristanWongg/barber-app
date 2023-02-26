@@ -9,7 +9,7 @@ import UpdateBookingsPage from './UpdateBookingsPage';
 function BookingForm({ setOpenForm }) {
 
     const [page, setPage] = useState(0);
-    const [updateHelper, setUpdateHelper] = useState({
+    const [formData, setFormData] = useState({
         id: '',
         name: '',
         email: '',
@@ -21,22 +21,27 @@ function BookingForm({ setOpenForm }) {
     const pageHeaders = ['Complete Your Booking Details', 'Search Up Appointments', 'Update your appointment', 'Thanks for booking!'];
     const pageBody = () => {
         switch(page) {
-            case 0: return <BookingPage page={page} setPage={setPage} />
+            case 0: return <BookingPage 
+                                page={page} 
+                                setPage={setPage} 
+                                setFormData={setFormData}
+                                formData={formData} 
+                            />
             case 1: return <FindBookingsPage 
                                 page={page} 
                                 setPage={setPage} 
-                                updateHelper={updateHelper} 
-                                setUpdateHelper={setUpdateHelper}
+                                formData={formData} 
+                                setFormData={setFormData}
                                 appointments={appointments}
                                 setAppointments={setAppointments}
                             />
             case 2: return <UpdateBookingsPage 
-                                updateHelper={updateHelper}
-                                setUpdateHelper={setUpdateHelper}
+                                formData={formData}
+                                setFormData={setFormData}
                                 appointments={appointments} 
                                 setAppointments={setAppointments} 
                             />
-            case 3: return <ConfirmedPage />
+            case 3: return <ConfirmedPage formData={formData} />
             default: return alert('Could not load proper page')
         }
     }
@@ -51,7 +56,7 @@ function BookingForm({ setOpenForm }) {
         }
     }
 
-    return (  
+    return (
         <m.div 
             className={BookingFormCSS.bookingForm}
             initial={{ x:"50vw"}}
@@ -59,15 +64,15 @@ function BookingForm({ setOpenForm }) {
             transition={{ duration: .75 }}
             exit={{ x:"50vw" }}
         >
-            <div className={BookingFormCSS.header}>
-                {displayPrevIcon()}
-                <button className={BookingFormCSS.closeBtn} onClick={() =>  setOpenForm(false)}>X</button>
-                <h3>{pageHeaders[page]}</h3>
-            </div>
-            <div className={BookingFormCSS.body}>
-                {pageBody()}
-            </div>
-        </m.div>
+                <div className={BookingFormCSS.header}>
+                    {displayPrevIcon()}
+                    <button className={BookingFormCSS.closeBtn} onClick={() =>  setOpenForm(false)}>X</button>
+                    <h3>{pageHeaders[page]}</h3>
+                </div>
+                <div className={BookingFormCSS.body}>
+                        {pageBody()}
+                </div>
+        </m.div>  
     );
 }
 

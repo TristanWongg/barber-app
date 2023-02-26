@@ -7,7 +7,7 @@ import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import "react-datepicker/dist/react-datepicker.css";
 
-function UpdateBookingsPage({ updateHelper, setUpdateHelper, appointments, setAppointments }) {
+function UpdateBookingsPage({ formData, setFormData, appointments, setAppointments }) {
 
     const [service, setService] = useState('Haircut');
     const [date, setDate] = useState(setHours(setMinutes(new Date(), 0), 9));
@@ -15,7 +15,7 @@ function UpdateBookingsPage({ updateHelper, setUpdateHelper, appointments, setAp
 
     const updateBooking = (e) => {
         e.preventDefault();
-        axios.put('https://barber-app-backend.onrender.com/updateBooking', { id: updateHelper.id, service, date })
+        axios.put('https://barber-app-backend.onrender.com/updateBooking', { id: formData.id, service, date })
         .then((response) => {
             const data = response.data;
             setAppointments(appointments.map((appt) => {
@@ -27,7 +27,7 @@ function UpdateBookingsPage({ updateHelper, setUpdateHelper, appointments, setAp
             }));
             setAppointments(appointments.sort((a, b) => (a.date > b.date) ? 1:-1));
             setSuccess(true);   
-            setUpdateHelper({...updateHelper, service: data.service, date: data.date});
+            setFormData({...formData, service: data.service, date: data.date});
         })
     }
 
@@ -73,11 +73,11 @@ function UpdateBookingsPage({ updateHelper, setUpdateHelper, appointments, setAp
                             <p>Date :</p>
                         </div>
                         <div>
-                            <p>{updateHelper.name}</p>
-                            <p>{updateHelper.email}</p>
-                            <p>{updateHelper.phone}</p>
-                            <p>{updateHelper.service}</p>
-                            <p>{moment.utc(updateHelper.date).local().format('MMMM Do, YYYY - h:mm A')}</p>
+                            <p>{formData.name}</p>
+                            <p>{formData.email}</p>
+                            <p>{formData.phone}</p>
+                            <p>{formData.service}</p>
+                            <p>{moment.utc(formData.date).local().format('MMMM Do, YYYY - h:mm A')}</p>
                         </div>
                     </div>
                 </div>

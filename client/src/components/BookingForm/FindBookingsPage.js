@@ -2,14 +2,13 @@ import FindBookingsCSS from '../../styles/findBookingsPage.module.css';
 import { useState } from "react";
 import axios from 'axios';
 import moment from 'moment';
-
-function FindBookingsPage({ page, setPage, updateHelper, setUpdateHelper, appointments, setAppointments }) {
+function FindBookingsPage({ page, setPage, formData, setFormData, appointments, setAppointments }) {
 
     const [empty, setEmpty] = useState(false);
     
     const findBookings = (e) => {
         e.preventDefault();
-        axios.get(`https://barber-app-backend.onrender.com/findBookings/${updateHelper.email}&${updateHelper.phone}`)
+        axios.get(`https://barber-app-backend.onrender.com/findBookings/${formData.email}&${formData.phone}`)
         .then((response) => {
             if(response.data.length !== 0) {
                 setAppointments(response.data);
@@ -26,15 +25,15 @@ function FindBookingsPage({ page, setPage, updateHelper, setUpdateHelper, appoin
         setAppointments(appointments.filter((appt) => appt._id !== id));
     }
 
-    return (  
+    return (
         <div className={FindBookingsCSS.container}>
             <form onSubmit={findBookings} className={FindBookingsCSS.searchForm}>
                         <input
                             type="text"
                             name="email"
                             placeholder="Email"
-                            value={updateHelper.email}
-                            onChange={(e) => setUpdateHelper({...updateHelper, email: e.target.value})}
+                            value={formData.email}
+                            onChange={(e) => setFormData({...formData, email: e.target.value})}
                             required
                         />
                         <input
@@ -44,8 +43,8 @@ function FindBookingsPage({ page, setPage, updateHelper, setUpdateHelper, appoin
                             pattern='[0-9]{10}'
                             maxLength='10'
                             title='Must be 10 digits (numbers only)'
-                            value={updateHelper.phone}
-                            onChange={(e) => setUpdateHelper({...updateHelper, phone: e.target.value})}
+                            value={formData.phone}
+                            onChange={(e) => setFormData({...formData, phone: e.target.value})}
                             required
                         />
                         <input type="submit" hidden/>
@@ -60,8 +59,8 @@ function FindBookingsPage({ page, setPage, updateHelper, setUpdateHelper, appoin
                                 key={appt._id}
                                 className={FindBookingsCSS.appointments}
                                 onClick={() => {
-                                    setUpdateHelper({
-                                        ...updateHelper, 
+                                    setFormData({
+                                        ...formData, 
                                         id: appt._id,
                                         name: appt.name
                                     })
