@@ -15,6 +15,24 @@ app.use(cors());
 const MONGO_URI = process.env.MONGO_URI
 mongoose.connect(MONGO_URI);
 
+
+
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+app.get("*", function (_, res) {
+    res.sendFile(
+        path.join(__dirname, "../client/build/index.html"),
+            function (err) {
+                res.status(500).send(err);
+            }
+        );
+});
+
+
+
+
+
+
 app.get('/getConfirmedBooking', (req, res) => {
     // res.setHeader('Access-Control-Allow-Credentials', 'true');
     BookingsModel.findOne().sort({_id:-1}).exec((err, result) => {

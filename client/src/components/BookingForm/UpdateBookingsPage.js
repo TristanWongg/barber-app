@@ -15,7 +15,8 @@ function UpdateBookingsPage({ formData, setFormData, appointments, setAppointmen
 
     const updateBooking = (e) => {
         e.preventDefault();
-        axios.put('https://barber-app-backend.onrender.com/updateBooking', { id: formData.id, service, date })
+        // axios.put('https://barber-app-backend.onrender.com/updateBooking', { id: formData.id, service, date })
+        axios.put('/updateBooking', { id: formData.id, service, date })
         .then((response) => {
             const data = response.data;
             setAppointments(appointments.map((appt) => {
