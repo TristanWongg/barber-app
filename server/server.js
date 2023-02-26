@@ -12,19 +12,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// mongoose.connect(process.env.MONGO_URI);
-
-const connectDB = async () => {
-    try {
-      const conn = await mongoose.connect(process.env.MONGO_URI);
-      console.log(`MongoDB Connected: ${conn.connection.host}`);
-    } catch (error) {
-      console.log(error);
-      process.exit(1);
-    }
-}
-
-  
+const MONGO_URI = process.env.MONGO_URI;
+mongoose.connect(MONGO_URI);
 
 app.get('/getConfirmedBooking', (req, res) => {
     // res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -81,12 +70,6 @@ app.delete('/deleteBooking/:id', (req, res) => {
     res.send('deleted')
 })
 
-// app.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-// })
-
-connectDB().then(() => {
-    app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-    })
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 })
