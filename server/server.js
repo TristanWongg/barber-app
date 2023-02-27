@@ -16,7 +16,6 @@ const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI);
 
 app.get('/getConfirmedBooking', (req, res) => {
-    // res.setHeader('Access-Control-Allow-Credentials', 'true');
     BookingsModel.findOne().sort({_id:-1}).exec((err, result) => {
         if(err){
             res.json(err)
