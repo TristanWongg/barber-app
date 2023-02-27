@@ -16,16 +16,18 @@ function Services({ titleAnimation }) {
             
             <div className={ServicesCSS.bgImage}>
                 <div className={ServicesCSS.servicesContainer}>
-                    <ul>
-                        <li>Haircut</li>
-                        <li>Haircut + Beard</li>
-                        <li>Small Talk</li>
-                    </ul>
-                    <ul>
-                        <li>$25</li>
-                        <li>$35</li>
-                        <li>Priceless</li>
-                    </ul>
+                    <div>
+                       <p>Haircut</p> 
+                       <p>$25</p> 
+                    </div>
+                    <div>
+                        <p>Haircut + Beard</p>
+                        <p>$35</p>  
+                    </div>
+                    <div>
+                        <p>Small Talk</p>
+                        <p>Priceless</p>
+                    </div>
                 </div>
             </div>
         </div>

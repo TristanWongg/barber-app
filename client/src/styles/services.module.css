@@ -8,7 +8,7 @@
 
 .bgImage{
     --services-bg-image: url('../assets/images/chris-knight-vI3m5UnZ0aQ-unsplash.jpg');
-    --services-bg-image-opacity: .8;
+    --services-bg-image-opacity: .9;
 
     height: 90%;
     width: 100%;
@@ -40,20 +40,51 @@
 }
 
 .servicesContainer {
-    height: 100%;
-    width: 98%;
     display: flex;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    gap: 3em;
+    padding-left: 2em;
 }
 
-.servicesContainer ul {
-    list-style: none;
+.servicesContainer > div {
+    display: flex;
+    max-width: 380px;
+}
+
+.servicesContainer > div > p {
     color: whitesmoke;
+    font-size: 1.8em;
 }
 
-.servicesContainer ul li {
-    margin: 1em;
-    font-size: 2em;
-    font-family: Raleway-light;
+.servicesContainer > div > p:last-child {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .background {
+        flex-direction: column;
+    }
+
+    .title {
+        font-size: 1.5em;
+    }
+
+    .servicesContainer {
+        gap: 5em;
+    }
+
+    .servicesContainer > div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .3em;
+    }
+    .servicesContainer > div > p {
+        font-family: Raleway-medium;
+        font-size: 2.5em;
+    }
 }

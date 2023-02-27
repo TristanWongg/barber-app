@@ -15,7 +15,7 @@ function Reviews({ titleAnimation }) {
                 className={ ReviewsCSS.title }
                 initial={ "hidden" }
                 whileInView={ "show" }
-                viewport={{ once: false, amount: 1 }}
+                viewport={{ once: false, amount: .6 }}
                 transition={{ staggerChildren: .3 }}
             >
                 <m.h1 variants={ titleAnimation }>Reviews</m.h1>

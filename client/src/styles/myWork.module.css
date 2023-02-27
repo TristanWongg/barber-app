@@ -23,3 +23,17 @@
   width: 100%;
   object-fit: cover;
 }
+
+@media screen and (max-width: 1024px) {
+  .background {
+    flex-direction: column;
+  }
+
+  .title {
+    display: flex;
+    gap: .5em;
+    padding: .5em;
+    font-size: 1.5em;
+  }
+
+}

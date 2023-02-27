@@ -35,10 +35,6 @@ body {
   overflow-x: hidden;
 }
 
-.scroll-section {
-  scroll-snap-align: start;
-}
-
 .top-images {
   display: flex;
   width: 100%;
