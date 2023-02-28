@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: .5em;
 }
 
 .bookingForm {
@@ -12,6 +13,7 @@
     justify-content: space-around;
     height: 85%;
     width: 90%;
+    gap: .5em;
 }
 
 .customerContainer,
@@ -44,6 +46,7 @@
     width: fit-content;
     align-self: center;
     padding: .5em;
+    margin-top: .5em;
     font-size: large;
     font-family: Raleway-medium;
     box-shadow: 1px 1px 1px black;

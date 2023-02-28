@@ -3,7 +3,7 @@
     z-index: 2;
     right:1.5em;
     height: 85vh;
-    width: 30vw;
+    min-width: 375px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -59,10 +59,10 @@ function BookingForm({ setOpenForm }) {
     return (
         <m.div 
             className={BookingFormCSS.bookingForm}
-            initial={{ x:"50vw"}}
+            initial={{ x:"100vw"}}
             animate={{ x: 0 }}
-            transition={{ duration: .75 }}
-            exit={{ x:"50vw" }}
+            transition={{ duration: 1 }}
+            exit={{ x:"100vw" }}
         >
                 <div className={BookingFormCSS.header}>
                     {displayPrevIcon()}
