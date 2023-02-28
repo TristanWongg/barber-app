@@ -62,5 +62,10 @@
 @media screen and (max-width: 1024px) {
     .bookingForm {
         right: 0.5em;
+        height: 95vh;
+    }
+
+    .header {
+        margin-bottom: .5em;
     }
 }

@@ -28,26 +28,26 @@ function FindBookingsPage({ page, setPage, formData, setFormData, appointments, 
     return (
         <div className={FindBookingsCSS.container}>
             <form onSubmit={findBookings} className={FindBookingsCSS.searchForm}>
-                        <input
-                            type="text"
-                            name="email"
-                            placeholder="Email"
-                            value={formData.email}
-                            onChange={(e) => setFormData({...formData, email: e.target.value})}
-                            required
-                        />
-                        <input
-                            type="tel"
-                            name='phone'
-                            placeholder='Phone Number'
-                            pattern='[0-9]{10}'
-                            maxLength='10'
-                            title='Must be 10 digits (numbers only)'
-                            value={formData.phone}
-                            onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                            required
-                        />
-                        <input type="submit" hidden/>
+                            <input
+                                type="text"
+                                name="email"
+                                placeholder="Email"
+                                value={formData.email}
+                                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                                required
+                            />
+                            <input
+                                type="tel"
+                                name='phone'
+                                placeholder='Phone Number'
+                                pattern='[0-9]{10}'
+                                maxLength='10'
+                                title='Must be 10 digits (numbers only)'
+                                value={formData.phone}
+                                onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                                required
+                            />
+                            <button>Find</button>
             </form>
             <div className={FindBookingsCSS.appointmentsContainer}>
                 {
