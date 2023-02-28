@@ -3,7 +3,7 @@
     z-index: 2;
     right:1.5em;
     height: 85vh;
-    min-width: 375px;
+    min-width: 360px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -57,4 +57,10 @@
 
 .body {
     height: 90%;
+}
+
+@media screen and (max-width: 1024px) {
+    .bookingForm {
+        right: 0.5em;
+    }
 }

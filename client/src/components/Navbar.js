@@ -5,7 +5,7 @@ function Navbar({ setOpenForm }) {
     return (
         <m.div 
             className={NavbarCSS.navbar}
-            initial = {{ y: '-10vw' }}
+            initial = {{ y: '-30vw' }}
             animate = {{ y: 0 }}
             transition = {{ duration: .7 }}
         >
