@@ -151,10 +151,7 @@ function About({ titleAnimation }) {
                 >
                     <m.h1 variants={rightTextAnimation} className={AboutCSS.gridTextHeader}>2019 - Now</m.h1>
                     <m.p variants={rightTextAnimation} className={AboutCSS.gridTextBody}>
-                        Barbering has become an enjoyable side hustle that allows me to earn a little extra money as well as catching up with old friends and meeting new people.
-                        <br />
-                        <br />
-                        Currently, I have a barber station set up in my basement where I've been cutting out of ever since.
+                        Barbering began as an interest but has grown to become a passion and enjoyable side hustle of mine. There is something extremely satisfying about watching how a haircut comes together that keeps me cutting to this day. It's always a good time catching up with friends and connecting with new people as well!
                     </m.p>
                 </m.div>
             </div>
