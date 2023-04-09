@@ -12,9 +12,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+//connect to MongoDB database
 const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI);
 
+//retrieves the most recently created appointment
 app.get('/getConfirmedBooking', (req, res) => {
     BookingsModel.findOne().sort({_id:-1}).exec((err, result) => {
         if(err){
@@ -25,6 +27,7 @@ app.get('/getConfirmedBooking', (req, res) => {
     })
 })
 
+//retrieves the appointments that correspond to the email/phone parameters and returns it in ascending order by date
 app.get('/findBookings/:email&:phone', (req, res) => {
     BookingsModel.find({
         'email': req.params.email,
@@ -40,6 +43,7 @@ app.get('/findBookings/:email&:phone', (req, res) => {
     })
 })
 
+//creates an appointment and saves it into the database
 app.post('/createBooking', async (req, res) => {
     const booking = req.body;
     const newBooking = new BookingsModel(booking);
@@ -47,6 +51,7 @@ app.post('/createBooking', async (req, res) => {
     res.json(booking);
 })
 
+//finds and updates the corresponding appointment details
 app.put('/updateBooking', (req, res) => {
     try{
         BookingsModel.findByIdAndUpdate(req.body.id, {
@@ -64,6 +69,7 @@ app.put('/updateBooking', (req, res) => {
     }
 })
 
+//removes appointment from the database
 app.delete('/deleteBooking/:id', (req, res) => {
     BookingsModel.findByIdAndDelete(req.params.id).exec();
     res.send('deleted')

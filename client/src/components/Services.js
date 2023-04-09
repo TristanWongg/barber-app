@@ -26,7 +26,7 @@ function Services({ titleAnimation }) {
                     </div>
                     <div>
                         <p>Small Talk</p>
-                        <p>Priceless</p>
+                        <p>Free</p>
                     </div>
                 </div>
             </div>
