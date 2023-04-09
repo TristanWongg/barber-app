@@ -43,7 +43,7 @@ app.get('/findBookings/:email&:phone', (req, res) => {
     })
 })
 
-//creates an appointment and saves it into the database
+//creates new appointment and saves it into the database
 app.post('/createBooking', async (req, res) => {
     const booking = req.body;
     const newBooking = new BookingsModel(booking);

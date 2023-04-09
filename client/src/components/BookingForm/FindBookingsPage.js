@@ -6,6 +6,7 @@ function FindBookingsPage({ page, setPage, formData, setFormData, appointments, 
 
     const [empty, setEmpty] = useState(false);
     
+    //GET request to retreive all the appointments that correspond to the provided email and phone parameters
     const findBookings = (e) => {
         e.preventDefault();
         axios.get(`https://barber-app-production.up.railway.app/findBookings/${formData.email}&${formData.phone}`)
@@ -19,6 +20,7 @@ function FindBookingsPage({ page, setPage, formData, setFormData, appointments, 
         })
     }
 
+    //sends a DELETE request to the server with the corresponding ID of the appointment to be deleted
     const handleDelete = (e, id) => {
         e.stopPropagation();
         axios.delete(`https://barber-app-production.up.railway.app/deleteBooking/${id}`);
@@ -53,6 +55,7 @@ function FindBookingsPage({ page, setPage, formData, setFormData, appointments, 
                 {
                     empty ? <p>No appointments found</p>
                     : 
+                    //maps through appointments array and displays all appointments
                     appointments.map((appt) => {
                         return (
                             <div 

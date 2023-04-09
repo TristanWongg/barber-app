@@ -15,9 +15,11 @@ function UpdateBookingsPage({ formData, setFormData, appointments, setAppointmen
 
     const updateBooking = (e) => {
         e.preventDefault();
+        //PUT request sends the user input to the server side to be used to update the corresponding appointment details
         axios.put('https://barber-app-production.up.railway.app/updateBooking', { id: formData.id, service, date })
         .then((response) => {
             const data = response.data;
+            //finds and replaces the old appointment with the newly updated appointment in the array
             setAppointments(appointments.map((appt) => {
                 if (appt._id === data._id) {
                     appt.service = data.service;

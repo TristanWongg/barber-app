@@ -9,6 +9,7 @@ function ConfirmedPage({ formData }) {
     const form = useRef();
     const [emailSent, setEmailSent] = useState(false);
 
+    //sends a confirmation email to the provided email
     const sendEmail = (e) => {
         e.preventDefault();
 

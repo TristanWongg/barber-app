@@ -8,7 +8,9 @@ import UpdateBookingsPage from './UpdateBookingsPage';
 
 function BookingForm({ setOpenForm }) {
 
+    //keep track of which page to render
     const [page, setPage] = useState(0);
+    //keeps track of the current appointment details to be used for CRUD operations
     const [formData, setFormData] = useState({
         id: '',
         name: '',

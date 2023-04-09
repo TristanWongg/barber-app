@@ -17,6 +17,7 @@ function BookingPage({ page, setPage, setFormData }) {
 
     const createBooking = async (e) => {
         e.preventDefault();
+        //POST request that sends user input to the server side
         await axios.post('https://barber-app-production.up.railway.app/createBooking', {
             name,
             email,
@@ -25,6 +26,7 @@ function BookingPage({ page, setPage, setFormData }) {
             date
         })
 
+        //GET request that retrieves the new appointment that was just saved to the database
         await axios.get('https://barber-app-production.up.railway.app/getConfirmedBooking').then((response) => {
             setFormData({
                 name: response.data.name,
@@ -34,6 +36,7 @@ function BookingPage({ page, setPage, setFormData }) {
                 date: response.data.date
             });
         });
+        //render the ConfirmedPage page
         setPage(3);
     };
 
